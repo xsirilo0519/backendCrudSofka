@@ -1,5 +1,9 @@
 package co.com.sofka.crud.Enities;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,8 +13,10 @@ public class Todo {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private boolean isCompleted;
+    @Value("${props.name:'hola'}")
+    private String name="";
+    @Value("${props.isCompleted:true}")
+    private boolean isCompleted=false;
 
     public Long getId() {
         return id;
